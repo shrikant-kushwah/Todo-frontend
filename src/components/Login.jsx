@@ -6,8 +6,8 @@ import { addUserData } from "../Utils/UserSlice";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [username, setUsername] = useState("john123");
-  const [password, setPassword] = useState("John123!");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const dispatch = useDispatch()
   const nav = useNavigate()
 
