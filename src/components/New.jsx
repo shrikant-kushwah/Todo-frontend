@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import {addTask} from "../Utils/UserSlice"
+import { addTask } from "../Utils/UserSlice"
 
 const New = () => {
 
@@ -17,15 +17,25 @@ const New = () => {
       if (!title.length || !desc.length) {
         return
       }
-      const res = await axios.post(`${import.meta.env.VITE_DOMAIN}/todos`, { title, desc, isCompleted: false }, { withCredentials: true })
-      // console.log(res)
-      dispatch(addTask(res.data.data))
-      if (res.status === 200) {
-        nav("/")
+      try {
+        const res = await axios.post(
+          `${import.meta.env.VITE_DOMAIN}/todos`,
+          { title, desc, isCompleted: false },
+          { withCredentials: true }
+        )
+
+        dispatch(addTask(res.data.data))
+
+        if (res.status === 201) {
+          nav("/")
+        }
+      } catch (err) {
+        console.error("Error creating todo:", err.response?.data || err.message)
       }
     }
     addTaskTodo()
   }
+
 
   return (
     <>
