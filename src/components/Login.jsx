@@ -6,8 +6,8 @@ import { addUserData } from "../Utils/UserSlice";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("john123");
+  const [password, setPassword] = useState("John123!");
   const dispatch = useDispatch()
   const nav = useNavigate()
 
@@ -62,7 +62,7 @@ const Login = () => {
               onClick={() => {
                 async function loginUser() {
                   try {
-                    const res = await axios.post(`${import.meta.env.VITE_DOMAIN}api/user/login`, {
+                    const res = await axios.post(`${import.meta.env.VITE_DOMAIN}/user/login`, {
                       username, password
                     }, { withCredentials: true })
                     // console.log(res.status)

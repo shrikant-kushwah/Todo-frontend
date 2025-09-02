@@ -30,7 +30,7 @@ const Navbar = () => {
           </button>
           <button onClick={() => {
             async function logout() {
-              const res = await axios.post(`${import.meta.env.VITE_DOMAIN}api/user/logout`, {}, { withCredentials: true })
+              const res = await axios.post(`${import.meta.env.VITE_DOMAIN}/user/logout`, {}, { withCredentials: true })
             }
             nav("/login")
             logout()

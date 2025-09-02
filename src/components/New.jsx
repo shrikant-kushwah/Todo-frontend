@@ -17,7 +17,7 @@ const New = () => {
       if (!title.length || !desc.length) {
         return
       }
-      const res = await axios.post(`${import.meta.env.VITE_DOMAIN}api/todos`, { title, desc, isCompleted: false }, { withCredentials: true })
+      const res = await axios.post(`${import.meta.env.VITE_DOMAIN}/todos`, { title, desc, isCompleted: false }, { withCredentials: true })
       // console.log(res)
       dispatch(addTask(res.data.data))
       if (res.status === 200) {

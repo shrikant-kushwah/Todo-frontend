@@ -15,7 +15,7 @@ const Home = () => {
 
   function handleDelete(id) {
     async function del() {
-      const res = await axios.delete(`${import.meta.env.VITE_DOMAIN}api/todos/${id}`, { withCredentials: true })
+      const res = await axios.delete(`${import.meta.env.VITE_DOMAIN}/todos/${id}`, { withCredentials: true })
       dispatch(delTask(id))
       console.log(res)
     }

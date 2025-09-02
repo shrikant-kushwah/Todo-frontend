@@ -24,7 +24,7 @@ const Edit = () => {
 
   function handleEdit() {
     async function editTaskTodo() {
-      const res = await axios.patch(`${import.meta.env.VITE_DOMAIN}api/todos/edit/${id}`, { title, desc, isCompleted }, { withCredentials: true })
+      const res = await axios.patch(`${import.meta.env.VITE_DOMAIN}/todos/edit/${id}`, { title, desc, isCompleted }, { withCredentials: true })
       // console.log(res)
       dispatch(editTask(res.data.data))
       nav("/")
