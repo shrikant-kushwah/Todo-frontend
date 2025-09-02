@@ -77,7 +77,7 @@ const Home = () => {
           </div>
         ) : (
           <div className="text-center text-gray-500 mt-10">
-            <p>No todos available. Start adding one 🚀</p>
+            <p>No todos available. Start adding one</p>
           </div>
         )}
       </div>

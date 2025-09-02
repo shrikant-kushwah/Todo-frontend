@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import {useDispatch} from "react-redux"
+import { useDispatch } from "react-redux"
 import { addUserData } from "../Utils/UserSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("john123");
@@ -81,6 +81,16 @@ const Login = () => {
             >
               Login
             </button>
+            {/* Signup Link */}
+            <p className="text-center text-sm text-gray-600">
+              Don’t have an account?{" "}
+              <Link
+                to="/auth"
+                className="text-blue-600 font-medium hover:underline"
+              >
+                Sign Up
+              </Link>
+            </p>
           </div>
         </div>
       </div>

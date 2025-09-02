@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import axios from "axios"
-
+import { Link } from 'react-router-dom';
 
 
 function getMaxDOBFor18YearsOld() {
@@ -22,10 +22,11 @@ const Auth = () => {
   const [gender, setGender] = useState("");
   const [number, setNumber] = useState("");
   const [dob, setDob] = useState("");
+  
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-3xl">
+      <div className="bg-white shadow-xl mt-8 rounded-2xl p-8 w-full max-w-3xl">
         <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Sign Up</h2>
 
         {/* Bento Grid */}
@@ -130,6 +131,7 @@ const Auth = () => {
               onChange={(e) => setGender(e.target.value)}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
             >
+              <option value="">Select Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="others">Others</option>
@@ -152,18 +154,31 @@ const Auth = () => {
         </div>
 
         {/* Submit Button */}
-        <button onClick={() => {
-          async function registerUser() {
-            const res = await axios.post(`${import.meta.env.VITE_DOMAIN}api/user/signup`, {
-              firstName, lastName, username, email, number, gender, password, dateOfBirth: dob
-            })
-            console.log(res)
-          }
-          registerUser()
-        }}
-          className="mt-8 w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition duration-300 shadow-md">
-          Sign Up
-        </button>
+        <div>
+          <button onClick={() => {
+            async function registerUser() {
+              const res = await axios.post(`${import.meta.env.VITE_DOMAIN}/user/signup`, {
+                firstName, lastName, username, email, number, gender, password, dateOfBirth: dob
+              })
+              console.log(res)
+            }
+            registerUser()
+          }}
+            className="mt-8 w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition duration-300 shadow-md">
+            Sign Up
+          </button>
+
+          {/* Login Link */}
+          <p className="text-center text-sm text-gray-600 mt-4">
+            Already have an account?{" "}
+            <Link
+              to="/login"
+              className="text-blue-600 font-medium hover:underline"
+            >
+              Login
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   )
