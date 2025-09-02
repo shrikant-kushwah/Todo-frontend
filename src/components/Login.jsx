@@ -62,9 +62,7 @@ const Login = () => {
               onClick={() => {
                 async function loginUser() {
                   try {
-                    const res = await axios.post(`${import.meta.env.VITE_DOMAIN}/user/login`, {
-                      username, password
-                    }, { withCredentials: true })
+                    const res = await axios.post(`${import.meta.env.VITE_DOMAIN}/user/login`, { username, password }, { withCredentials: true })
                     // console.log(res.status)
                     dispatch(addUserData(res.data.data))
                     nav("/")
@@ -83,7 +81,7 @@ const Login = () => {
             </button>
             {/* Signup Link */}
             <p className="text-center text-sm text-gray-600">
-              Don’t have an account?{" "}
+              Don't have an account?{" "}
               <Link
                 to="/auth"
                 className="text-blue-600 font-medium hover:underline"

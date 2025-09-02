@@ -14,11 +14,10 @@ const ProtectedRoutes = () => {
     if (!userSliceData) {
       async function getData() {
         try {
-          const res = await axios.get(
-            `${import.meta.env.VITE_DOMAIN}/user/get-user-data`,
-            { withCredentials: true }
-          )
+          const res = await axios.get(`${import.meta.env.VITE_DOMAIN}/user/get-user-data`,{ withCredentials: true })
+
           dispatch(addUserData(res.data.data))
+
         } catch (error) {
           navigate("/login")
         }

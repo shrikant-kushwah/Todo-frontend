@@ -19,11 +19,8 @@ const New = () => {
       }
       try {
         const res = await axios.post(
-          `${import.meta.env.VITE_DOMAIN}/todos`,
-          { title, desc, isCompleted: false },
-          { withCredentials: true }
-        )
-
+          `${import.meta.env.VITE_DOMAIN}/todos`,{ title, desc, isCompleted: false },{ withCredentials: true })
+          
         dispatch(addTask(res.data.data))
 
         if (res.status === 201) {
