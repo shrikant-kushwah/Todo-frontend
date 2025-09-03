@@ -8,25 +8,25 @@ import Loader from './Loader'
 const ProtectedRoutes = () => {
   const userSliceData = useSelector(store => store.user)
   const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const nav = useNavigate()
 
   useEffect(() => {
     if (!userSliceData) {
       async function getData() {
         try {
-          const res = await axios.get(`${import.meta.env.VITE_DOMAIN}/user/get-user-data`,{ withCredentials: true })
+          const res = await axios.get(`${import.meta.env.VITE_DOMAIN}/user/get-user-data`, { withCredentials: true })
 
           dispatch(addUserData(res.data.data))
 
         } catch (error) {
-          navigate("/login")
+          nav("/login")
         }
       }
       getData()
     }
-  }, [userSliceData, navigate, dispatch])
+  }, [userSliceData, nav, dispatch])
 
-  if (userSliceData === null) {
+  if (!userSliceData) {
     return <Loader />
   }
 
