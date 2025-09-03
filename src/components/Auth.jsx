@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import axios from "axios"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 function getMaxDOBFor18YearsOld() {
@@ -14,6 +14,8 @@ function getMaxDOBFor18YearsOld() {
 
 const Auth = () => {
 
+  const nav = useNavigate()
+  
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
@@ -161,6 +163,7 @@ const Auth = () => {
                 firstName, lastName, username, email, number, gender, password, dateOfBirth: dob
               })
               console.log(res)
+              nav("/login")
             }
             registerUser()
           }}
