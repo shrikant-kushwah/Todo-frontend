@@ -80,6 +80,16 @@ const Home = () => {
             <p>No todos available. Start adding one</p>
           </div>
         )}
+        {/* My AI Todos Section (inside container for alignment) */}
+        {/* <div className="flex items-center justify-between mt-10">
+          <h1 className="text-2xl font-bold text-gray-800">My AI Todos</h1>
+          <button
+            onClick={() => nav("/ai-todo")}
+            className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition"
+          >
+            Create with AI
+          </button>
+        </div> */}
       </div>
     </div>
   );

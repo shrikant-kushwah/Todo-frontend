@@ -7,6 +7,7 @@ import Login from './components/Login'
 import { Toaster } from 'react-hot-toast';
 import ProtectedRoutes from './components/ProtectedRoutes'
 import Edit from './components/Edit'
+// import AiTodoCreator from './components/AiTodoCreator'
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/new' element={<New />} />
           <Route path='/edit/:id' element={<Edit/>}/>
+          {/* <Route path='/ai-todo' element={<AiTodoCreator />} /> */}
         </Route>
       </Routes>
     </div>
